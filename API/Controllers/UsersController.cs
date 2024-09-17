@@ -4,13 +4,13 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Controllers;
+namespace API;
 
 [ApiController]
 [Route("api/[controller]")] // /api/users
 public class UsersController(DataContext context) : ControllerBase
 {
-    [HttpGet]
+    [HttpGet] // người dùng gọi API
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
         var users = await context.Users.ToListAsync();
