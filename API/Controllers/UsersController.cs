@@ -1,7 +1,3 @@
-using System;
-using API;
-using API.Data;
-using API.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +6,7 @@ namespace API;
 
 public class UsersController(DataContext context) : BaseApiController
 {
-    [AllowAnonymous]
+    [AllowAnonymous] // Không cần token vẫn có thể call
     [HttpGet] // người dùng gọi API
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
@@ -19,7 +15,7 @@ public class UsersController(DataContext context) : BaseApiController
         return users;
     }
 
-    [Authorize]
+    [Authorize] // Cần đưa vào cái token
     [HttpGet("{id:int}")]  // /api/users/2
     public async Task<ActionResult<AppUser>> GetUser(int id)
     {

@@ -1,5 +1,3 @@
-using System;
-using API.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace API;
