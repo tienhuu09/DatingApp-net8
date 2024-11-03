@@ -15,6 +15,9 @@
           <a routerLink="/messages" routerLinkActive="active" class="nav-link">Messages</a>
         </li>
       }
+      <li class="nav-item">
+        <a routerLink="/errors" routerLinkActive="active" class="nav-link">Errors</a>
+      </li>
     </ul>
 
     @if (accountService.currentUser())
@@ -37,7 +40,7 @@
         <input name="Username" [(ngModel)]="model.username" class="form-control me-2" placeholder="Username">
         <input name="password" [(ngModel)]="model.password" class="form-control me-2" placeholder="Password"
           type="password">
-        <button class="btn btn-success" type="submit">Login</button>
+        <button class="btn btn-secondary" type="submit">Login</button>
       </form>
     }
 
